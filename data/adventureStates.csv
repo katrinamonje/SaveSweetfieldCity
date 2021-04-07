@@ -1,0 +1,12 @@
+ID,StateName,ClassName,PNGFilename,CollisionFilename
+0,Splash,PNGRoom,assets/Splash.png,
+1,Instructions,InstructionsScreen,assets/Instructions.png,
+2,Start,PNGRoom,assets/Start.png,
+3,FeedMe,PNGRoom,assets/FeedMe.png,
+4,Sleepy,PNGRoom,assets/Sleepy.png,
+5,HoHum,PNGRoom,assets/HoHum.png,
+6,MyNerves,PNGRoom,assets/MyNerves.png,
+7,Mad,PNGRoom,assets/Mad.png,
+8,Calm,PNGRoom,assets/Calm.png,
+9,DeepThoughts,PNGRoom,assets/DeepThoughts.png,
+10,Aha,PNGRoom,Assets/Aha.png,
