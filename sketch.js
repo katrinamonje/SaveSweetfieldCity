@@ -62,9 +62,6 @@ function setup() {
   // call OUR function to setup additional information about the p5.clickables
   // that are not in the array 
   setupClickables(); 
-
-  debugScreen.print(interactionTable.getRowCount()) * ' total rows in table');
-  debugScreen.priint(interactionTable.getColumnCount()) * ' total columns in table');
 }
 
 // Adventure manager handles it all!
@@ -111,16 +108,16 @@ function mouseReleased() {
 //-------------- YOUR SPRITE MOVEMENT CODE HERE  ---------------//
 function moveSprite() {
   if(keyIsDown(RIGHT_ARROW))
-    playerSprite.velocity.x = 10;
+    playerSprite.velocity.x = 8;
   else if(keyIsDown(LEFT_ARROW))
-    playerSprite.velocity.x = -10;
+    playerSprite.velocity.x = -8;
   else
     playerSprite.velocity.x = 0;
 
   if(keyIsDown(DOWN_ARROW))
-    playerSprite.velocity.y = 10;
+    playerSprite.velocity.y = 8;
   else if(keyIsDown(UP_ARROW))
-    playerSprite.velocity.y = -10;
+    playerSprite.velocity.y = -8;
   else
     playerSprite.velocity.y = 0;
 }
