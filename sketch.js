@@ -72,9 +72,16 @@ function draw() {
   // draw the p5.clickables, in front of the mazes but behind the sprites 
   clickablesManager.draw();
 
-  // No avatar for Splash screen or Instructions screen
-  if( adventureManager.getStateName() !== "Splash" && 
-      adventureManager.getStateName() !== "Instructions" ) {
+  // No avatar for Splash screen, Instructions screen, and other narrative screens
+  if( adventureManager.getStateName() !== "splashScreen" && 
+      adventureManager.getStateName() !== "sacrificeZoneIntroScreen" && 
+      adventureManager.getStateName() !== "narrativeIntroOneScreen" && 
+      adventureManager.getStateName() !== "sweetfieldMapOneScreen" && 
+      adventureManager.getStateName() !== "narrativeIntroTwoScreen" && 
+      adventureManager.getStateName() !== "SweetfieldMapTwoScreen" && 
+      adventureManager.getStateName() !== "instructionsScreen" && 
+      adventureManager.getStateName() !== "narrativeEndingScreen" && 
+      adventureManager.getStateName() !== "climateJusticeAllianceScreen") {
       
     // responds to keydowns
     moveSprite();
