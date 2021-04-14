@@ -1,8 +1,11 @@
 /***********************************************************************************
-  MoodyMaze
-  by Scott Kildall
+  SaveSweetfieldCity
+  by Katrina Monje
 
   Uses the p5.2DAdventure.js class 
+
+  Note: change KeyTyped 'k' in adventureState.csv to KeyCode() for 'enter'
+  
   
 ------------------------------------------------------------------------------------
 	To use:
