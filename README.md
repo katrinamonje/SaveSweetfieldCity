@@ -25,7 +25,7 @@ The data folder contains all CSV files for the interaction tables embedded in th
 Prototype (Adobe XD)
 The AdobeXD file consists of the 28 screens as a mockup of the code and storyline, which is in the link below:
 
-[INSERT LINK]
+https://xd.adobe.com/view/07ab7ac7-548b-4b17-bd46-2e13f339f516-52f8/
 
 ##
 ### References
