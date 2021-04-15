@@ -5,7 +5,7 @@
   Uses the p5.2DAdventure.js class 
 
   Note: change KeyTyped 'k' in adventureState.csv to KeyCode() for 'enter'
-  
+
   
 ------------------------------------------------------------------------------------
 	To use:
@@ -50,6 +50,7 @@ function setup() {
   playerSprite = createSprite(width/2, height/2, 80, 80);
 
   // every animation needs a descriptor, since we aren't switching animations, this string value doesn't matter
+  playerSprite.addAnimation('idle', loadAnimation('assets/avatars/felicityWalker.png'));
   playerSprite.addAnimation('walk', loadAnimation('assets/avatars/felicityWalker-01.png', 'assets/avatars/felicityWalker-04.png'));  
 
   // use this to track movement from toom to room in adventureManager.draw()
@@ -117,19 +118,29 @@ function mouseReleased() {
 
 //-------------- YOUR SPRITE MOVEMENT CODE HERE  ---------------//
 function moveSprite() {
-  if(keyIsDown(RIGHT_ARROW))
-    playerSprite.velocity.x = 8;
-  else if(keyIsDown(LEFT_ARROW))
-    playerSprite.velocity.x = -8;
-  else
+  if(keyIsDown(RIGHT_ARROW)) {
+    playerSprite.changeAnimation('walk');
+    playerSprite.mirrorX(1);
+    playerSprite.velocity.x = 6;
+  }
+  else if(keyIsDown(LEFT_ARROW)) {
+    playerSprite.changeAnimation('walk');
+    playerSprite.mirrorX(-1);
+    playerSprite.velocity.x = -6;
+  }
+  else if(keyIsDown(DOWN_ARROW)) {
+    playerSprite.changeAnimation('walk');
+    playerSprite.velocity.y = 6;
+  }
+  else if(keyIsDown(UP_ARROW)) {
+    playerSprite.changeAnimation('walk');
+    playerSprite.velocity.y = -6;
+  }
+  else {
+    playerSprite.changeAnimation('idle');
     playerSprite.velocity.x = 0;
-
-  if(keyIsDown(DOWN_ARROW))
-    playerSprite.velocity.y = 8;
-  else if(keyIsDown(UP_ARROW))
-    playerSprite.velocity.y = -8;
-  else
     playerSprite.velocity.y = 0;
+  }
 }
 
 //-------------- CLICKABLE CODE  ---------------//
