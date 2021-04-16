@@ -1,2 +1,3 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
-0,StartGame,Instructions,,Start Game,100,650,yes
+0,StartGame,instructionsScreen,,Start Game,600,550,yes
+1,startGameButton,instructionScreen,,300,300,yes

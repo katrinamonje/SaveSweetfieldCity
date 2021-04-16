@@ -1,11 +1,11 @@
 CurrentState,KeyTyped,KeyCode,MouseEvent,ClickableName,MapDirection,NextState
 splashScreen,,,mouseReleased,,,sacrificeZoneIntroScreen
-sacrificeZoneIntroScreen,k,,,,,narrativeIntroOneScreen
-narrativeIntroOneScreen,k,,,,,sweetfieldMapOneScreen
-sweetfieldMapOneScreen,k,,,,,narrativeIntroTwoScreen
-narrativeIntroTwoScreen,k,,,,,SweetfieldMapTwoScreen
-SweetfieldMapTwoScreen,k,,,,,instructionsScreen
-instructionsScreen,k,,,,,levelOneBasicNeedsScreen
+sacrificeZoneIntroScreen, ,,,,,narrativeIntroOneScreen
+narrativeIntroOneScreen, ,,,,,sweetfieldMapOneScreen
+sweetfieldMapOneScreen, ,,,,,narrativeIntroTwoScreen
+narrativeIntroTwoScreen, ,,,,,SweetfieldMapTwoScreen
+SweetfieldMapTwoScreen, ,,,,,instructionsScreen
+instructionsScreen, ,,,,,levelOneBasicNeedsScreen
 levelOneBasicNeedsScreen,,,,,N,levelTwoSafetyScreen
 levelOneBasicNeedsScreen,,,,,E,levelTwoSafetyScreen
 levelOneBasicNeedsScreen,,,,,W,levelTwoSafetyScreen
@@ -23,4 +23,4 @@ levelSevenTranscendenceScreen,,,,,S,sweetfieldSavedAScreen
 sweetfieldSavedAScreen,,,,,S,sweetfieldSavedBScreen
 sweetfieldSavedBScreen,,,,,S,narrativeEndingScreen
 narrativeEndingScreen,,,mouseReleased,,,climateJusticeAllianceScreen
-climateJusticeAllianceScreen,k,,,,,splashScreen
+climateJusticeAllianceScreen, ,,,,,splashScreen
