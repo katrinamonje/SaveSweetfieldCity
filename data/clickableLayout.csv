@@ -1,2 +1,3 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
 0,startGame,instructionsScreen,assets/clickables/startGameButton.png,,500,535,yes
+1,playAgain,climateJusticeAllianceScreen,assets/clickables/playAgainButton.png,,500,535,yes

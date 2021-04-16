@@ -83,7 +83,8 @@ function draw() {
       adventureManager.getStateName() !== "sweetfieldMapOneScreen" && 
       adventureManager.getStateName() !== "narrativeIntroTwoScreen" && 
       adventureManager.getStateName() !== "sweetfieldMapTwoScreen" && 
-      adventureManager.getStateName() !== "instructionsScreen" && 
+      adventureManager.getStateName() !== "instructionsScreen" &&
+      adventureManager.getStateName() !== "sweetfieldSavedBScreen" &&
       adventureManager.getStateName() !== "narrativeEndingScreen" && 
       adventureManager.getStateName() !== "climateJusticeAllianceScreen") {
       
