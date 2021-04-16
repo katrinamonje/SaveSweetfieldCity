@@ -1,3 +1,2 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
-0,StartGame,instructionsScreen,,Start Game,600,550,yes
-1,startGameButton,instructionScreen,,300,300,yes
+0,startGame,instructionsScreen,assets/clickables/startGameButton.png,,500,535,yes

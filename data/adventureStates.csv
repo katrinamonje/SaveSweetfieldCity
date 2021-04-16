@@ -4,7 +4,7 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 2,narrativeIntroOneScreen,PNGRoom,assets/narrativeIntroOne.png,
 3,sweetfieldMapOneScreen,PNGRoom,assets/sweetfieldMapOne.png,
 4,narrativeIntroTwoScreen,PNGRoom,assets/narrativeIntroTwo.png,
-5,SweetfieldMapTwoScreen,PNGRoom,assets/SweetfieldMapTwo.png,
+5,sweetfieldMapTwoScreen,PNGRoom,assets/sweetfieldMapTwo.png,
 6,instructionsScreen,InstructionsScreen,assets/instructions.png,
 7,levelOneBasicNeedsScreen,PNGRoom,assets/levelOneBasicNeeds.png,
 8,levelTwoSafetyScreen,PNGRoom,assets/levelTwoSafety.png,

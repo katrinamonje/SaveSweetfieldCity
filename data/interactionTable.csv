@@ -3,9 +3,9 @@ splashScreen,,,mouseReleased,,,sacrificeZoneIntroScreen
 sacrificeZoneIntroScreen, ,,,,,narrativeIntroOneScreen
 narrativeIntroOneScreen, ,,,,,sweetfieldMapOneScreen
 sweetfieldMapOneScreen, ,,,,,narrativeIntroTwoScreen
-narrativeIntroTwoScreen, ,,,,,SweetfieldMapTwoScreen
-SweetfieldMapTwoScreen, ,,,,,instructionsScreen
-instructionsScreen, ,,,,,levelOneBasicNeedsScreen
+narrativeIntroTwoScreen, ,,,,,sweetfieldMapTwoScreen
+sweetfieldMapTwoScreen, ,,,,,instructionsScreen
+instructionsScreen,,,,startGame,,levelOneBasicNeedsScreen
 levelOneBasicNeedsScreen,,,,,N,levelTwoSafetyScreen
 levelOneBasicNeedsScreen,,,,,E,levelTwoSafetyScreen
 levelOneBasicNeedsScreen,,,,,W,levelTwoSafetyScreen
