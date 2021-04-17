@@ -14,13 +14,13 @@ levelTwoSafetyScreen,,,,,E,levelThreeABelongingnessScreen
 levelTwoSafetyScreen,,,,,W,levelThreeABelongingnessScreen
 levelThreeABelongingnessScreen,,,,,N,levelThreeBBelongingnessScreen
 levelThreeBBelongingnessScreen,,,,,N,levelFourAEsteemScreen
-levelFourAEsteemScreen,,,,,N,levelFourBEsteemScreen
-levelFourBEsteemScreen,,,,,N,levelFiveAKnowledgeScreen
-levelFiveAKnowledgeScreen,,,,,E,levelFiveBKnowledgeScreen
+levelFourAEsteemScreen,,,,,E,levelFourBEsteemScreen
+levelFourBEsteemScreen, ,,,,,levelFiveAKnowledgeScreen
+levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
 levelFiveBKnowledgeScreen,,,,,S,levelSixSelfActualizationScreen
 levelSixSelfActualizationScreen,,,,,S,levelSevenTranscendenceScreen
 levelSevenTranscendenceScreen,,,,,S,sweetfieldSavedAScreen
-sweetfieldSavedAScreen,,,,,S,sweetfieldSavedBScreen
-sweetfieldSavedBScreen,,,,,S,narrativeEndingScreen
+sweetfieldSavedAScreen,,,,,E,sweetfieldSavedBScreen
+sweetfieldSavedBScreen, ,,,,,narrativeEndingScreen
 narrativeEndingScreen,,,mouseReleased,,,climateJusticeAllianceScreen
-climateJusticeAllianceScreen, ,,,playAgain,,splashScreen
+climateJusticeAllianceScreen,,,,playAgain,,splashScreen
