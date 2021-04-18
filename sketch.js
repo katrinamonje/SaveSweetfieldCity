@@ -17,9 +17,17 @@
 // adventure manager global  
 var adventureManager;
 
-// p5.play
+// p5.play player sprite
 var playerSprite;
 var playerAnimation;
+
+// narrative and instructions text
+var narrativeText;
+var narrativeVisible = false;
+var narrativeX = 640 - 480; // width of screen / 2 - width of dialogue box /2 
+var narrativeY = 360 - 130; // height of screen / 2 - height of screen / 2
+var currentLevel = " ";
+var currentNarrative = " "; 
 
 // Clickables: the manager class
 var clickablesManager;    // the manager class
@@ -37,6 +45,10 @@ function preload() {
 
   clickablesManager = new ClickableManager('data/clickableLayout.csv');
   adventureManager = new AdventureManager('data/adventureStates.csv', 'data/interactionTable.csv', 'data/clickableLayout.csv');
+
+  // Fonts and images for narrative text 
+  fontcurrentLevel = loadFont('fonts/AtariClassic-Regular.ttf');
+  fontNarrativeText = loadFont('fonts/Katrinus.ttf');
 }
 
 // Setup the adventure manager
@@ -93,7 +105,10 @@ function draw() {
 
     // this is a function of p5.js, not of this sketch
     drawSprite(playerSprite);
-  } 
+  }
+
+  // draw instructions for levels
+  drawNarrativeText(); 
 }
 
 // pass to adventure manager, this do the draw / undraw events
@@ -144,6 +159,34 @@ function moveSprite() {
   }
 }
 
+//--------------  FOR INSTRUCTIONS TEXT  --------//
+
+function drawNarrativeText() {
+  if( narrativeVisible === true) {
+    image(dialogueBox, narrativeX, narrativeY);
+    drawNarrativeText();
+  }
+}
+
+function drawNarrativeText() {
+  // current level
+  push();
+  textSize(25);
+  textFont(fontcurrentLevel);
+  fill("#FFFFFF");
+  text(currentLevel, narrativeX, narrativeY);
+  pop();
+
+  // narrative instructions 
+  push();
+  textSize(24);
+  textFont(fontNarrativeText);
+  fill("#FFFFFF");
+  text(currentNarrative, narrativeX, narrativeY + 50);
+  pop();
+}
+
+
 //-------------- CLICKABLE CODE  ---------------//
 
 function setupClickables() {
@@ -182,35 +225,98 @@ clickableButtonPressed = function() {
 // Instructions screen has a backgrounnd image, loaded from the adventureStates table
 // It is sublcassed from PNGRoom, which means all the loading, unloading and drawing of that
 // class can be used. We call super() to call the super class's function as needed
-class InstructionsScreen extends PNGRoom {
-  // preload is where we define OUR variables
-  // Best not to use constructor() functions for sublcasses of PNGRoom
-  // AdventureManager calls preload() one time, during startup
-  preload() {
-    // These are out variables in the InstructionsScreen class
-    this.textBoxWidth = (width/6)*4;
-    this.textBoxHeight = (height/6)*4; 
+// class InstructionsScreen extends PNGRoom {
+//   // preload is where we define OUR variables
+//   // Best not to use constructor() functions for sublcasses of PNGRoom
+//   // AdventureManager calls preload() one time, during startup
+//   preload() {
+//     // These are out variables in the InstructionsScreen class
+//     this.textBoxWidth = (width/6)*4;
+//     this.textBoxHeight = (height/6)*4; 
 
-    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "You are navigating through the interior space of your moods. There is no goal to this game, but just a chance to explore various things that might be going on in your head. Use the ARROW keys to navigate your avatar around.";
+//     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+//     this.instructionsText = "You are navigating through the interior space of your moods. There is no goal to this game, but just a chance to explore various things that might be going on in your head. Use the ARROW keys to navigate your avatar around.";
+//   }
+
+//   // call the PNGRoom superclass's draw function to draw the background image
+//   // and draw our instructions on top of this
+//   draw() {
+//     // tint down background image so text is more readable
+//     tint(128);
+      
+//     // this calls PNGRoom.draw()
+//     super.draw();
+      
+//     // text draw settings
+//     fill(255);
+//     textAlign(CENTER);
+//     textSize(30);
+
+//     // Draw text in a box
+//     text(this.instructionsText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
+//   }
+// }
+
+// A template for creating sublclasses
+class levelOneBasicNeedsRoom extends PNGRoom {
+  // preload() gets called once upon startup
+  // We load ONE animation and create 20 NPCs
+  preload() {
+    this.drawDialog = false;
+    
+
+    this.foodX = 200;
+    this.foodY = 550;
+
+    this.foodNPC = loadImage('assets/food.png');
+    this.foodSprite = createSprite(this.foodX, this.foodY, 100, 53);
   }
 
-  // call the PNGRoom superclass's draw function to draw the background image
-  // and draw our instructions on top of this
-  draw() {
-    // tint down background image so text is more readable
-    tint(128);
-      
-    // this calls PNGRoom.draw()
-    super.draw();
-      
-    // text draw settings
-    fill(255);
-    textAlign(CENTER);
-    textSize(30);
+  //load() gets called whenever you enter a room
+  load() {
+     super.load();
 
-    // Draw text in a box
-    text(this.instructionsText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
+     // you could load a custom PNG dialog box here
+     // this.foodNPC = loadImage('assets/food.png');
+     this.dialogueBox = loadImage('assets/dialogueBox.png');
+  }
+
+  // pass draw function to superclass, then draw sprites, then check for overlap
+  draw() {
+    // PNG room draw
+    super.draw();
+    drawSprite(this.foodSprite);
+    this.foodSprite.setCollider('rectangle', 0, 0, 30, 30);
+    playerSprite.collide(this.foodSprite);
+
+    // fill(255);
+    // textAlign(CENTER);
+    // textSize(40);
+    // text("Get out of SWEETFIELD!", width/2, height/2)
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.foodSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 1';
+      currentNarrative = 'Sweetfield City is in DANGER!\nAir is too toxic to breathe. First,\nfind some food to take with you,\nthen get out of Sweetfield!';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+
+  // gets called when you leave a room
+  unload()  {
+      super.unload();
+
+      // you would unload it here
+      this.foodNPC = null;
+      narrativeVisible = false;
+      this.dialogueBox = false;
+
   }
 }
 
