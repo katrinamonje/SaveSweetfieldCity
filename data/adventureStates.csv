@@ -7,7 +7,7 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 5,sweetfieldMapTwoScreen,PNGRoom,assets/sweetfieldMapTwo.png,
 6,instructionsScreen,instructionsRoom,assets/instructions.png,
 7,levelOneBasicNeedsScreen,levelOneBasicNeedsRoom,assets/levelOneBasicNeeds.png,assets/levelOneBasicNeeds_cl.csv
-8,levelTwoSafetyScreen,PNGRoom,assets/levelTwoSafety.png,assets/levelTwoSafety_cl.csv
+8,levelTwoSafetyScreen,levelTwoSafetyRoom,assets/levelTwoSafety.png,assets/levelTwoSafety_cl.csv
 9,levelThreeABelongingnessScreen,PNGRoom,assets/levelThreeABelongingness.png,
 10,levelThreeBBelongingnessScreen,PNGRoom,assets/levelThreeBBelongingness.png,
 11,levelFourAEsteemScreen,PNGRoom,assets/levelFourAEsteem.png,assets/levelFourAEsteem_cl.csv
@@ -19,5 +19,5 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 17,levelSevenTranscendenceScreenEdited,PNGRoom,assets/levelSevenTranscendenceEdited.png,
 18,sweetfieldSavedAScreen,PNGRoom,assets/sweetfieldSavedA.png,
 19,sweetfieldSavedBScreen,PNGRoom,assets/sweetfieldSavedB.png,
-20,narrativeEndingScreen,PNGRoom,assets/narrativeEnding.png,
+20,narrativeEndingScreen,narrativeEndingRoom,assets/narrativeEnding.png,
 21,climateJusticeAllianceScreen,PNGRoom,assets/climateJusticeAlliance.png,

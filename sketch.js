@@ -2,10 +2,18 @@
   SaveSweetfieldCity
   by Katrina Monje
 
-  Uses the p5.2DAdventure.js class 
+  This project uses the p5.2DAdventure.js, p5.clickable.js, and p5.play.js classes.
 
-  Note: change KeyTyped 'k' in adventureState.csv to KeyCode() for 'enter'
+  This is an Interaction Design Course project about environmental injustices, specifically how underserved communities in 'Sacrifice Zones' are being affected negatively. 
+  This project aims to explore clickables and  and navigating between screens using an avatar.
+  The story follows a young Felicity Walker who needs to save her hometown, Sweetfield City, whose sweetfield crops are taken away by the neighboring town Goldfolk.
+  Instructions
+  (1) Navigate between states through the keyboard. Press the SPACEBAR to advance to the next screen (state).
+  (2) Click on buttons as you follow along the instructions that pop out when the avatar hovers.
+  (3) Press the arrow keys in screens to go to other levels.
+  Also start your localhost before running this, otherwise no PNGs will display.
 
+  Further info is included in the README file.
   
 ------------------------------------------------------------------------------------
 	To use:
@@ -174,7 +182,7 @@ function drawNarrativeText() {
   push();
   textSize(25);
   textFont(fontcurrentLevel);
-  fill("#694205");
+  fill("#000000");
   text(currentLevel, dialogueBoxX + 150, dialogueBoxY + 100);
   pop();
 
@@ -182,7 +190,7 @@ function drawNarrativeText() {
   push();
   textSize(24);
   textFont(fontNarrativeText);
-  fill("#FFFFFF");
+  fill("#000000");
   text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 150);
   pop();
 }
@@ -235,7 +243,7 @@ class sacrificeZoneIntroRoom extends PNGRoom {
     this.textBoxY = 250;
 
     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.\n\n\n[press SPACE to continue]";
   }
 
   // call the PNGRoom superclass's draw function to draw the background image
@@ -269,7 +277,7 @@ class narrativeIntroOneRoom extends PNGRoom {
     this.textBoxY = 250;
 
     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+    this.instructionsText = "Long ago, Sweetfield City was nothing but a peaceful utopian world filled with crops and prosperity. Everyone got a long well, and the town relied heavily on trade. Plants, farming, and food was abundant everywhere.\n\n\n[press SPACE to continue]";
   }
 
   // call the PNGRoom superclass's draw function to draw the background image
@@ -300,10 +308,10 @@ class narrativeIntroTwoRoom extends PNGRoom {
     this.textBoxWidth = (width/6)*4;
     this.textBoxHeight = (height/6)*4;
     this.textBoxX = 200;
-    this.textBoxY = 250;
+    this.textBoxY = 215;
 
     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+    this.instructionsText = "The relentless search for hidden treasures around the world has destroyed the land as we know it. Sweetfield City is now seen as a dangerous, unsafe, and grim place. Once glorious, its sweetfields are now desolate, its air toxic, and its people divided, all thanks to the unrelenting men of neighboring city of Goldfolk. A young Felicity Walker is Sweetfield’s only hope! Will you help Felicity stop her hometown from becoming a Sacrifice Zone?\n\n\n[press SPACE to continue]";
   }
 
   // call the PNGRoom superclass's draw function to draw the background image
@@ -372,7 +380,6 @@ class levelOneBasicNeedsRoom extends PNGRoom {
   load() {
      super.load();
 
-     this.foodNPC = loadImage('assets/food.png');
      this.foodSprite = createSprite(this.foodX, this.foodY, 100, 53);
   }
 
@@ -413,17 +420,72 @@ class levelOneBasicNeedsRoom extends PNGRoom {
   }
 }
 
-// Level One: Basic Need
-// Level Two: Safety
-// Level Three A: Belongingness
-// Level Three B: Belongingness
-// Level Four A: Esteem
-// Level Four B: Esteem
-// Level Five A: Knowledge
-// Level Five B: Knowledge
-// Level Six: Self-Actualization
-// Level Seven: Transcendence
-// Sweetfield Saved A
-// Sweetfield Saved B
-// Narrative Ending
+// Level Two:  Safety Room
+class levelTwoSafetyRoom extends PNGRoom {
+  preload() {
+    this.maskNPC = null;
+    this.maskX = 600;
+    this.maskY = 550;
+  }
+  load() {
+     super.load();
+     this.maskSprite = createSprite(this.maskX, this.maskY, 100, 53);
+  }
+  draw() {
+    super.draw();
+    drawSprite(this.foodSprite);
+    this.maskSprite.setCollider('rectangle', 0, 0, 100, 30);
+    playerSprite.collide(this.maskSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.maskSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 2';
+      currentNarrative = 'Thee air is too toxic to breathe. Take this mask with you\nand follow the path to continue your journey';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+}
+
+// Level Three A: Belongingness Room
+// Level Three B: Belongingness Room
+// Level Four A: Esteem Room
+// Level Four B: Esteem Room
+// Level Five A: Knowledge Room
+// Level Five B: Knowledge Room
+// Level Six: Self-Actualization Room
+// Level Seven: Transcendence Room
+// Sweetfield Saved A Room
+// Sweetfield Saved B Room Room
+// Narrative Ending Room
+class narrativeEndingRoom extends PNGRoom {
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4;
+    this.textBoxX = 200;
+    this.textBoxY = 215;
+
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "The relentless search for hidden treasures around the world has destroyed the land as we know it. Sweetfield City is now seen as a dangerous, unsafe, and grim place. Once glorious, its sweetfields are now desolate, its air toxic, and its people divided, all thanks to the unrelenting men of neighboring city of Goldfolk. A young Felicity Walker is Sweetfield’s only hope! Will you help Felicity stop her hometown from becoming a Sacrifice Zone?\n\n\n[press SPACE to continue]";
+  }
+
+  draw() {
+      
+    // this calls PNGRoom.draw()
+    super.draw();
+      
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(30);
+    textFont(fontNarrativeText);
+
+    text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
+  }
+}
 

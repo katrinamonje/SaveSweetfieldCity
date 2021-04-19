@@ -8,17 +8,16 @@ sweetfieldMapTwoScreen, ,,,,,instructionsScreen
 instructionsScreen,,,,startGame,,levelOneBasicNeedsScreen
 levelOneBasicNeedsScreen,,,,getFood,,levelTwoSafetyScreen
 levelTwoSafetyScreen,,,,,E,levelThreeABelongingnessScreen
-levelTwoSafetyScreen,,,,,W,levelThreeABelongingnessScreen
 levelThreeABelongingnessScreen,,,,,N,levelThreeBBelongingnessScreen
 levelThreeBBelongingnessScreen,,,,,N,levelFourAEsteemScreen
 levelFourAEsteemScreen,,,,,E,levelFourBEsteemScreen
 levelFourBEsteemScreen,e,,,,,levelFiveAKnowledgeScreen
 levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
 levelFiveBKnowledgeScreen,,,,,S,levelSixSelfActualizationScreen
-levelSixSelfActualizationScreen,,,,,S,levelSevenTranscendenceScreen
+levelSixSelfActualizationScreen,,,,,E,levelSevenTranscendenceScreen
 levelSevenTranscendenceScreen,,,,plantSweetflower,,levelSevenTranscendenceScreenEdited
-levelSevenTranscendenceScreenEdited,,,,,S,sweetfieldSavedAScreen
-sweetfieldSavedAScreen,,,,,E,sweetfieldSavedBScreen
+levelSevenTranscendenceScreenEdited,c,,,,,sweetfieldSavedAScreen
+sweetfieldSavedAScreen,,,,,W,sweetfieldSavedBScreen
 sweetfieldSavedBScreen, ,,,,,narrativeEndingScreen
-narrativeEndingScreen,,,mouseReleased,,,climateJusticeAllianceScreen
+narrativeEndingScreen, ,,,,,climateJusticeAllianceScreen
 climateJusticeAllianceScreen,,,,playAgain,,splashScreen
