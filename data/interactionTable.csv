@@ -1,6 +1,6 @@
 CurrentState,KeyTyped,KeyCode,MouseEvent,ClickableName,MapDirection,NextState
 splashScreen,,,mouseReleased,,,sacrificeZoneIntroScreen
-sacrificeZoneIntroScreen, ,,,,,narrativeIntroOneScreen
+sacrificeZoneIntroScreen, ,,,continueGame,,narrativeIntroOneScreen
 narrativeIntroOneScreen, ,,,,,sweetfieldMapOneScreen
 sweetfieldMapOneScreen, ,,,,,narrativeIntroTwoScreen
 narrativeIntroTwoScreen, ,,,,,sweetfieldMapTwoScreen
@@ -19,7 +19,8 @@ levelFourBEsteemScreen, ,,,,,levelFiveAKnowledgeScreen
 levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
 levelFiveBKnowledgeScreen,,,,,S,levelSixSelfActualizationScreen
 levelSixSelfActualizationScreen,,,,,S,levelSevenTranscendenceScreen
-levelSevenTranscendenceScreen,,,,,S,sweetfieldSavedAScreen
+levelSevenTranscendenceScreen,,,,plantSweetflower,,levelSevenTranscendenceScreenEdited
+levelSevenTranscendenceScreenEdited,,,,,S,sweetfieldSavedAScreen
 sweetfieldSavedAScreen,,,,,E,sweetfieldSavedBScreen
 sweetfieldSavedBScreen, ,,,,,narrativeEndingScreen
 narrativeEndingScreen,,,mouseReleased,,,climateJusticeAllianceScreen

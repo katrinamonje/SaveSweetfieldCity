@@ -64,7 +64,7 @@ function Clickable() {
 	this.width = 100;		//Width of the clickable
 	this.height = 50;		//Height of the clickable
 	this.color = "#FFFFFF";		//Background color of the clickable
-	this.cornerRadius = 10;		//Corner radius of the clickable
+	this.cornerRadius = 12;		//Corner radius of the clickable
 	this.strokeWeight = 2;		//Stroke width of the clickable
 	this.stroke = "#000000";	//Border color of the clickable
 	this.text = "Press Me";		//Text of the clickable

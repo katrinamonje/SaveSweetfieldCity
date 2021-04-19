@@ -24,8 +24,8 @@ var playerAnimation;
 // narrative and instructions text
 var narrativeText;
 var narrativeVisible = false;
-var narrativeX = 640 - 480; // width of screen / 2 - width of dialogue box /2 
-var narrativeY = 360 - 130; // height of screen / 2 - height of screen / 2
+var dialogueBoxX = 640 - 480; // width of screen / 2 - width of dialogue box /2 
+var dialogueBoxY = 360 - 130; // height of screen / 2 - height of screen / 2
 var currentLevel = " ";
 var currentNarrative = " "; 
 
@@ -49,6 +49,7 @@ function preload() {
   // Fonts and images for narrative text 
   fontcurrentLevel = loadFont('fonts/AtariClassic-Regular.ttf');
   fontNarrativeText = loadFont('fonts/Katrinus.ttf');
+  dialogueBox = loadImage('assets/dialogueBox.png');
 }
 
 // Setup the adventure manager
@@ -108,7 +109,7 @@ function draw() {
   }
 
   // draw instructions for levels
-  drawNarrativeText(); 
+  drawNarrativeBox(); 
 }
 
 // pass to adventure manager, this do the draw / undraw events
@@ -161,9 +162,9 @@ function moveSprite() {
 
 //--------------  FOR INSTRUCTIONS TEXT  --------//
 
-function drawNarrativeText() {
+function drawNarrativeBox() {
   if( narrativeVisible === true) {
-    image(dialogueBox, narrativeX, narrativeY);
+    image(dialogueBox, dialogueBoxX, dialogueBoxY);
     drawNarrativeText();
   }
 }
@@ -173,8 +174,8 @@ function drawNarrativeText() {
   push();
   textSize(25);
   textFont(fontcurrentLevel);
-  fill("#FFFFFF");
-  text(currentLevel, narrativeX, narrativeY);
+  fill("#694205");
+  text(currentLevel, dialogueBoxX + 150, dialogueBoxY + 100);
   pop();
 
   // narrative instructions 
@@ -182,7 +183,7 @@ function drawNarrativeText() {
   textSize(24);
   textFont(fontNarrativeText);
   fill("#FFFFFF");
-  text(currentNarrative, narrativeX, narrativeY + 50);
+  text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 150);
   pop();
 }
 
@@ -221,69 +222,96 @@ clickableButtonPressed = function() {
 
 //-------------- SUBCLASSES / YOUR DRAW CODE CAN GO HERE ---------------//
 
+// Sacrifice Zone Intro
+class sacrificeZoneIntroRoom extends PNGRoom {
+  // preload is where we define OUR variables
+  // Best not to use constructor() functions for sublcasses of PNGRoom
+  // AdventureManager calls preload() one time, during startup
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4;
+    this.textBoxX = 200;
+    this.textBoxY = 250;
 
-// Instructions screen has a backgrounnd image, loaded from the adventureStates table
-// It is sublcassed from PNGRoom, which means all the loading, unloading and drawing of that
-// class can be used. We call super() to call the super class's function as needed
-// class InstructionsScreen extends PNGRoom {
-//   // preload is where we define OUR variables
-//   // Best not to use constructor() functions for sublcasses of PNGRoom
-//   // AdventureManager calls preload() one time, during startup
-//   preload() {
-//     // These are out variables in the InstructionsScreen class
-//     this.textBoxWidth = (width/6)*4;
-//     this.textBoxHeight = (height/6)*4; 
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+  }
 
-//     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-//     this.instructionsText = "You are navigating through the interior space of your moods. There is no goal to this game, but just a chance to explore various things that might be going on in your head. Use the ARROW keys to navigate your avatar around.";
-//   }
-
-//   // call the PNGRoom superclass's draw function to draw the background image
-//   // and draw our instructions on top of this
-//   draw() {
-//     // tint down background image so text is more readable
-//     tint(128);
+  // call the PNGRoom superclass's draw function to draw the background image
+  // and draw our instructions on top of this
+  draw() {
       
-//     // this calls PNGRoom.draw()
-//     super.draw();
+    // this calls PNGRoom.draw()
+    super.draw();
       
-//     // text draw settings
-//     fill(255);
-//     textAlign(CENTER);
-//     textSize(30);
+    // text draw settings
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(30);
+    textFont(fontNarrativeText);
 
-//     // Draw text in a box
-//     text(this.instructionsText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
-//   }
-// }
+    // Draw text in a box
+    text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
+  }
+}
 
-// A template for creating sublclasses
+
+// Instructions
+class instructionsRoom extends PNGRoom {
+  // preload is where we define OUR variables
+  // Best not to use constructor() functions for sublcasses of PNGRoom
+  // AdventureManager calls preload() one time, during startup
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4; 
+
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "HOW TO PLAY\n\nPress SPACEBAR to move on to the next levels, and the ARROW KEYS to navigate Felicity around Sweetfield and Goldfolk City. Press F for full screen Mode.";
+  }
+
+  // call the PNGRoom superclass's draw function to draw the background image
+  // and draw our instructions on top of this
+  draw() {
+      
+    // this calls PNGRoom.draw()
+    super.draw();
+      
+    // text draw settings
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(30);
+    textFont(fontNarrativeText);
+
+    // Draw text in a box
+    text(this.instructionsText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
+  }
+}
+
+// Level One: Basic Needs Room
 class levelOneBasicNeedsRoom extends PNGRoom {
   // preload() gets called once upon startup
   // We load ONE animation and create 20 NPCs
   preload() {
-    this.drawDialog = false;
-    
+    this.foodNPC = null;
 
     this.foodX = 200;
     this.foodY = 550;
-
-    this.foodNPC = loadImage('assets/food.png');
-    this.foodSprite = createSprite(this.foodX, this.foodY, 100, 53);
+    
   }
 
   //load() gets called whenever you enter a room
   load() {
      super.load();
 
-     // you could load a custom PNG dialog box here
-     // this.foodNPC = loadImage('assets/food.png');
-     this.dialogueBox = loadImage('assets/dialogueBox.png');
+     this.foodNPC = loadImage('assets/food.png');
+     this.foodSprite = createSprite(this.foodX, this.foodY, 100, 53);
   }
 
   // pass draw function to superclass, then draw sprites, then check for overlap
   draw() {
-    // PNG room draw
+    
     super.draw();
     drawSprite(this.foodSprite);
     this.foodSprite.setCollider('rectangle', 0, 0, 30, 30);
@@ -299,7 +327,7 @@ class levelOneBasicNeedsRoom extends PNGRoom {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
       currentLevel = 'Level 1';
-      currentNarrative = 'Sweetfield City is in DANGER!\nAir is too toxic to breathe. First,\nfind some food to take with you,\nthen get out of Sweetfield!';
+      currentNarrative = 'Sweetfield City is in DANGER! Air is too toxic to breathe. First,\nfind some food to take with you, then get out of Sweetfield!';
     }
     else {
       narrativeVisible = false;
@@ -315,8 +343,20 @@ class levelOneBasicNeedsRoom extends PNGRoom {
       // you would unload it here
       this.foodNPC = null;
       narrativeVisible = false;
-      this.dialogueBox = false;
-
   }
 }
+
+// Level One: Basic Need
+// Level Two: Safety
+// Level Three A: Belongingness
+// Level Three B: Belongingness
+// Level Four A: Esteem
+// Level Four B: Esteem
+// Level Five A: Knowledge
+// Level Five B: Knowledge
+// Level Six: Self-Actualization
+// Level Seven: Transcendence
+// Sweetfield Saved A
+// Sweetfield Saved B
+// Narrative Ending
 
