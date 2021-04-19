@@ -461,7 +461,34 @@ class levelTwoSafetyRoom extends PNGRoom {
 // Level Six: Self-Actualization Room
 // Level Seven: Transcendence Room
 // Sweetfield Saved A Room
-// Sweetfield Saved B Room Room
+
+// Sweetfield Saved B  Room
+class sweetfieldSavedBRoom extends PNGRoom {
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4;
+    this.textBoxX = 200;
+    this.textBoxY = 215;
+
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "Congratulations! You made it to the end. Thanks to your help, Felicity and the Freedom Fighters were able to restore Sweetfield City's glory. Best of all, her town has microfarms that provide food for folks!\n\n\n[SPACE]";
+  }
+
+  draw() {
+      
+    // this calls PNGRoom.draw()
+    super.draw();
+      
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(40);
+    textFont(fontNarrativeText);
+
+    text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
+  }
+}
+
 // Narrative Ending Room
 class narrativeEndingRoom extends PNGRoom {
   preload() {
@@ -472,17 +499,18 @@ class narrativeEndingRoom extends PNGRoom {
     this.textBoxY = 215;
 
     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "The relentless search for hidden treasures around the world has destroyed the land as we know it. Sweetfield City is now seen as a dangerous, unsafe, and grim place. Once glorious, its sweetfields are now desolate, its air toxic, and its people divided, all thanks to the unrelenting men of neighboring city of Goldfolk. A young Felicity Walker is Sweetfield’s only hope! Will you help Felicity stop her hometown from becoming a Sacrifice Zone?\n\n\n[press SPACE to continue]";
+    this.instructionsText = "Sustainable microfarms help bring people closer to the food they eat, creating transparency in the food chain and the opportunity to combat environmental injustices such as 'food deserts' and shortages. Visit www.thrivesantaana.org to learn how cities like Santa Ana does it.\n\n\n[press SPACE]";
   }
 
   draw() {
+
+    tint(125);
       
-    // this calls PNGRoom.draw()
     super.draw();
-      
-    fill('#694205');
+  
+    fill('#FFFFFF');
     textAlign(CENTER);
-    textSize(30);
+    textSize(40);
     textFont(fontNarrativeText);
 
     text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );

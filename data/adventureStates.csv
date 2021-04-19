@@ -18,6 +18,6 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 16,levelSevenTranscendenceScreen,PNGRoom,assets/levelSevenTranscendence.png,assets/levelSevenTranscendence_cl.csv
 17,levelSevenTranscendenceScreenEdited,PNGRoom,assets/levelSevenTranscendenceEdited.png,
 18,sweetfieldSavedAScreen,PNGRoom,assets/sweetfieldSavedA.png,
-19,sweetfieldSavedBScreen,PNGRoom,assets/sweetfieldSavedB.png,
+19,sweetfieldSavedBScreen,sweetfieldSavedBRoom,assets/sweetfieldSavedB.png,
 20,narrativeEndingScreen,narrativeEndingRoom,assets/narrativeEnding.png,
 21,climateJusticeAllianceScreen,PNGRoom,assets/climateJusticeAlliance.png,
