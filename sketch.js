@@ -277,7 +277,7 @@ class narrativeIntroOneRoom extends PNGRoom {
     this.textBoxY = 250;
 
     // hard-coded, but this could be loaded from a file if we wanted to be more elegant
-    this.instructionsText = "Long ago, Sweetfield City was nothing but a peaceful utopian world filled with crops and prosperity. Everyone got a long well, and the town relied heavily on trade. Plants, farming, and food was abundant everywhere.\n\n\n[press SPACE to continue]";
+    this.instructionsText = "Not too long ago, Sweetfield City was nothing but a peaceful world filled with crops and prosperity. Everyone got along well, and the town relied heavily on trade. Plants, farming, and food was abundant everywhere.\n\n\n[press SPACE to continue]";
   }
 
   // call the PNGRoom superclass's draw function to draw the background image
@@ -442,7 +442,7 @@ class levelTwoSafetyRoom extends PNGRoom {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
       currentLevel = 'Level 2';
-      currentNarrative = 'The air is too toxic to breathe. Take this mask with you\nand follow the path to continue your journey.';
+      currentNarrative = 'The air is too toxic to breathe. Take this mask with you and follow\nthe path to continue your journey. By the way, where did everyone go?\nYou should try heading to Sweet Forest to find out.';
     }
     else {
       narrativeVisible = false;
@@ -467,21 +467,23 @@ class levelTwoSafetyRoom extends PNGRoom {
 // Level Four B: Esteem Room
 class LevelFourBEsteemRoom extends PNGRoom {
   preload() {
-    this.davidHumbleNPC = false;
+    this.davidHumbleSprite = false;
     this.davidHumbleX = 600;
     this.davidHumbleY = 550;
-    this.davidHumbleWidth = 140;
-    this.davidHumbleHeight = 443;
+    this.davidHumbleWidth = 50;
+    this.davidHumbleHeight = 53;
   }
+
   load() {
      super.load();
      this.davidHumbleSprite = createSprite(this.davidHumbleX, this.davidHumbleY, this.davidHumbleWidth, this.davidHumbleHeight);
-     this.davidHumbleNPC = loadImage('assets/avatars/davidHumble.png');
+     this.davidHumbleSprite.addAnimation('idle', loadAnimation('assets/avatars/davidHumble.png'));
   }
+
   draw() {
     super.draw();
     drawSprite(this.davidHumbleSprite);
-    this.davidHumbleSprite.setCollider('rectangle', 0, 0, 100, 30);
+    this.davidHumbleSprite.setCollider('rectangle', 0, 0, 30, 30);
     playerSprite.collide(this.davidHumbleSprite);
 
     // draw our dialog box here...
@@ -496,13 +498,13 @@ class LevelFourBEsteemRoom extends PNGRoom {
       currentLevel = '';
       currentNarrative = '';
     }
-    // unload() {
-    //   super.unload();
+  }
+  unload() {
+      super.unload();
 
-    //   // you would unload it here
-    //   this.davidHumbleNPC = false;
-    //   narrativeVisible = false;
-    // }
+      // you would unload it here
+      this.davidHumbleSprite = false;
+      narrativeVisible = false;
   }
 }
 // Level Five A: Knowledge Room
