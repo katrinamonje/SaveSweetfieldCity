@@ -12,7 +12,7 @@ levelTwoSafetyScreen,,,,,W,levelThreeABelongingnessScreen
 levelThreeABelongingnessScreen,,,,,N,levelThreeBBelongingnessScreen
 levelThreeBBelongingnessScreen,,,,,N,levelFourAEsteemScreen
 levelFourAEsteemScreen,,,,,E,levelFourBEsteemScreen
-levelFourBEsteemScreen, ,,,,,levelFiveAKnowledgeScreen
+levelFourBEsteemScreen,e,,,,,levelFiveAKnowledgeScreen
 levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
 levelFiveBKnowledgeScreen,,,,,S,levelSixSelfActualizationScreen
 levelSixSelfActualizationScreen,,,,,S,levelSevenTranscendenceScreen

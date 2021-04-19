@@ -256,6 +256,73 @@ class sacrificeZoneIntroRoom extends PNGRoom {
   }
 }
 
+// Narrative Intro One
+class narrativeIntroOneRoom extends PNGRoom {
+  // preload is where we define OUR variables
+  // Best not to use constructor() functions for sublcasses of PNGRoom
+  // AdventureManager calls preload() one time, during startup
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4;
+    this.textBoxX = 200;
+    this.textBoxY = 250;
+
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+  }
+
+  // call the PNGRoom superclass's draw function to draw the background image
+  // and draw our instructions on top of this
+  draw() {
+      
+    // this calls PNGRoom.draw()
+    super.draw();
+      
+    // text draw settings
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(30);
+    textFont(fontNarrativeText);
+
+    // Draw text in a box
+    text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
+  }
+}
+
+// Narrative Intro Two
+class narrativeIntroTwoRoom extends PNGRoom {
+  // preload is where we define OUR variables
+  // Best not to use constructor() functions for sublcasses of PNGRoom
+  // AdventureManager calls preload() one time, during startup
+  preload() {
+    // variables in the InstructionsScreen class
+    this.textBoxWidth = (width/6)*4;
+    this.textBoxHeight = (height/6)*4;
+    this.textBoxX = 200;
+    this.textBoxY = 250;
+
+    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
+    this.instructionsText = "This game is intends to raise awareness of environmental racism through the existence of “Sacrifice Zones”, and how frontline communities face compounding crises. A sacrifice zone is “an area targeted for the disproportionate burden of pollution, and for the by-products of consumerism and of industrial disregard.";
+  }
+
+  // call the PNGRoom superclass's draw function to draw the background image
+  // and draw our instructions on top of this
+  draw() {
+      
+    // this calls PNGRoom.draw()
+    super.draw();
+      
+    // text draw settings
+    fill('#694205');
+    textAlign(CENTER);
+    textSize(30);
+    textFont(fontNarrativeText);
+
+    // Draw text in a box
+    text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
+  }
+}
 
 // Instructions
 class instructionsRoom extends PNGRoom {
