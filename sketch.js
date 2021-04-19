@@ -191,7 +191,7 @@ function drawNarrativeText() {
   textSize(24);
   textFont(fontNarrativeText);
   fill("#000000");
-  text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 150);
+  text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 130);
   pop();
 }
 
@@ -442,7 +442,7 @@ class levelTwoSafetyRoom extends PNGRoom {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
       currentLevel = 'Level 2';
-      currentNarrative = 'Thee air is too toxic to breathe. Take this mask with you\nand follow the path to continue your journey';
+      currentNarrative = 'The air is too toxic to breathe. Take this mask with you\nand follow the path to continue your journey.';
     }
     else {
       narrativeVisible = false;
@@ -450,12 +450,61 @@ class levelTwoSafetyRoom extends PNGRoom {
       currentNarrative = '';
     }
   }
+
+  unload()  {
+      super.unload();
+
+      // you would unload it here
+      this.maskNPC = null;
+      narrativeVisible = false;
+  }
 }
 
 // Level Three A: Belongingness Room
 // Level Three B: Belongingness Room
 // Level Four A: Esteem Room
+
 // Level Four B: Esteem Room
+class LevelFourBEsteemRoom extends PNGRoom {
+  preload() {
+    this.davidHumbleNPC = false;
+    this.davidHumbleX = 600;
+    this.davidHumbleY = 550;
+    this.davidHumbleWidth = 140;
+    this.davidHumbleHeight = 443;
+  }
+  load() {
+     super.load();
+     this.davidHumbleSprite = createSprite(this.davidHumbleX, this.davidHumbleY, this.davidHumbleWidth, this.davidHumbleHeight);
+     this.davidHumbleNPC = loadImage('assets/avatars/davidHumble.png');
+  }
+  draw() {
+    super.draw();
+    drawSprite(this.davidHumbleSprite);
+    this.davidHumbleSprite.setCollider('rectangle', 0, 0, 100, 30);
+    playerSprite.collide(this.davidHumbleSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.davidHumbleSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 4';
+      currentNarrative = 'Sir David Humble: Hi! Welcome to my city. I see that you are\nlooking for something to tell you about our famous crops. You are\nwelcome to use our research library if you like? [press E to enter]';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+    // unload() {
+    //   super.unload();
+
+    //   // you would unload it here
+    //   this.davidHumbleNPC = false;
+    //   narrativeVisible = false;
+    // }
+  }
+}
 // Level Five A: Knowledge Room
 // Level Five B: Knowledge Room
 // Level Six: Self-Actualization Room
@@ -497,22 +546,16 @@ class narrativeEndingRoom extends PNGRoom {
     this.textBoxHeight = (height/6)*4;
     this.textBoxX = 200;
     this.textBoxY = 215;
-
-    // hard-coded, but this could be loaded from a file if we wanted to be more elegant
     this.instructionsText = "Sustainable microfarms help bring people closer to the food they eat, creating transparency in the food chain and the opportunity to combat environmental injustices such as 'food deserts' and shortages. Visit www.thrivesantaana.org to learn how cities like Santa Ana does it.\n\n\n[press SPACE]";
   }
 
   draw() {
-
     tint(125);
-      
     super.draw();
-  
     fill('#FFFFFF');
     textAlign(CENTER);
     textSize(40);
     textFont(fontNarrativeText);
-
     text(this.instructionsText, this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight );
   }
 }

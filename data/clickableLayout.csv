@@ -5,4 +5,4 @@ ID,Name,State,PNGFilename,Text,x,y,visible
 3,discoverSweetfieldHistory,levelFiveAKnowledgeScreen,assets/clickables/discoverSweetfieldHistoryButton.png,,300,0,yes
 4,plantSweetflower,levelSevenTranscendenceScreen,assets/clickables/sweetflower.png,,500,400,yes
 5,getFood,levelOneBasicNeedsScreen,assets/clickables/food.png,,150,522,yes
-6,getMask,levelTwoSafety,assets/clickables/mask.png,,100,100,yes
+6,getMask,levelTwoSafetyScreen,assets/clickables/mask.png,,500,500,yes

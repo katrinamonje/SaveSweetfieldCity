@@ -7,9 +7,9 @@ narrativeIntroTwoScreen, ,,,,,sweetfieldMapTwoScreen
 sweetfieldMapTwoScreen, ,,,,,instructionsScreen
 instructionsScreen,,,,startGame,,levelOneBasicNeedsScreen
 levelOneBasicNeedsScreen,,,,getFood,,levelTwoSafetyScreen
-levelTwoSafetyScreen,,,,,E,levelThreeABelongingnessScreen
-levelThreeABelongingnessScreen,,,,,N,levelThreeBBelongingnessScreen
-levelThreeBBelongingnessScreen,,,,,N,levelFourAEsteemScreen
+levelTwoSafetyScreen,,,,getMask,,levelThreeABelongingnessScreen
+levelThreeABelongingnessScreen,,,,,S,levelThreeBBelongingnessScreen
+levelThreeBBelongingnessScreen,,,,,E,levelFourAEsteemScreen
 levelFourAEsteemScreen,,,,,E,levelFourBEsteemScreen
 levelFourBEsteemScreen,e,,,,,levelFiveAKnowledgeScreen
 levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
