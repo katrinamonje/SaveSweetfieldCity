@@ -6,10 +6,7 @@ sweetfieldMapOneScreen, ,,,,,narrativeIntroTwoScreen
 narrativeIntroTwoScreen, ,,,,,sweetfieldMapTwoScreen
 sweetfieldMapTwoScreen, ,,,,,instructionsScreen
 instructionsScreen,,,,startGame,,levelOneBasicNeedsScreen
-levelOneBasicNeedsScreen,,,,,N,levelTwoSafetyScreen
-levelOneBasicNeedsScreen,,,,,E,levelTwoSafetyScreen
-levelOneBasicNeedsScreen,,,,,W,levelTwoSafetyScreen
-levelOneBasicNeedsScreen,,,,,S,levelTwoSafetyScreen
+levelOneBasicNeedsScreen,,,,getFood,,levelTwoSafetyScreen
 levelTwoSafetyScreen,,,,,E,levelThreeABelongingnessScreen
 levelTwoSafetyScreen,,,,,W,levelThreeABelongingnessScreen
 levelThreeABelongingnessScreen,,,,,N,levelThreeBBelongingnessScreen
