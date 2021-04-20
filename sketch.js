@@ -677,7 +677,7 @@ class LevelSixSelfActualizationRoom extends PNGRoom {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
       currentLevel = 'Level 4: Esteem';
-      currentNarrative = 'Felicity discovered something, that for sure. Her hometown became\na Sacrifice Zone!? And now her folks are suffering, and\nworst of all their crops are taken away. Go back to\nSweetfield to rebuild microfarms.';
+      currentNarrative = 'Felicity discovered something, that for sure. Her hometown became\na Sacrifice Zone!? And now her folks are suffering, and\nworst of all their crops are taken away. Go back to Sweetfield to\nreplant the sweetflower.';
     }
     else {
       narrativeVisible = false;
