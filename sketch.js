@@ -463,7 +463,6 @@ class levelTwoSafetyRoom extends PNGRoom {
 }
 
 // Level Three A: Belongingness Room
-
 class LevelThreeABelongingnessRoom extends PNGRoom {
   preload() {
     this.npcGirlSprite = false;
@@ -520,6 +519,48 @@ class LevelThreeABelongingnessRoom extends PNGRoom {
 
 // Level Three B: Belongingness Room
 // Level Four A: Esteem Room
+class LevelFourAEsteemRoom extends PNGRoom {
+  preload() {
+    this.arrowsSprite = false;
+    this.arrowsX = 600;
+    this.arrowsY = 500;
+    this.arrowsWidth = 200;
+    this.arrowsHeight = 29;
+  }
+
+  load() {
+     super.load();
+     this.arrowsSprite = createSprite(this.arrowsX, this.arrowsY, this.arrowsWidth, this.arrowsHeight);
+     this.arrowsSprite.addAnimation('idle', loadAnimation('assets/arrows.png'));
+  }
+
+  draw() {
+    super.draw();
+    drawSprite(this.arrowsSprite);
+    this.arrowsSprite.setCollider('rectangle', 0, 0, 30, 30);
+    playerSprite.collide(this.arrowsSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.arrowsSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 4: Esteem';
+      currentNarrative = 'You have finally reached the neighboring city of Goldfolk! Wow.\nThis place looks so much better than Sweetfield right now. The air is\neven fresh and clean. Keep moving and you might discover how they do it.';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+  unload() {
+      super.unload();
+
+      // you would unload it here
+      this.arrowsSprite = false;
+      narrativeVisible = false;
+  }
+}
 
 // Level Four B: Esteem Room
 class LevelFourBEsteemRoom extends PNGRoom {
@@ -610,6 +651,49 @@ class LevelFiveAKnowledgeRoom extends PNGRoom {
 
 // Level Five B: Knowledge Room
 // Level Six: Self-Actualization Room
+class LevelSixSelfActualizationRoom extends PNGRoom {
+  preload() {
+    this.arrowsSprite = false;
+    this.arrowsX = 600;
+    this.arrowsY = 500;
+    this.arrowsWidth = 200;
+    this.arrowsHeight = 29;
+  }
+
+  load() {
+     super.load();
+     this.arrowsSprite = createSprite(this.arrowsX, this.arrowsY, this.arrowsWidth, this.arrowsHeight);
+     this.arrowsSprite.addAnimation('idle', loadAnimation('assets/arrows.png'));
+  }
+
+  draw() {
+    super.draw();
+    drawSprite(this.arrowsSprite);
+    this.arrowsSprite.setCollider('rectangle', 0, 0, 30, 30);
+    playerSprite.collide(this.arrowsSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.arrowsSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 4: Esteem';
+      currentNarrative = 'Felicity discovered something, that for sure. Her hometown became\na Sacrifice Zone!? And now her folks are suffering, and\nworst of all their crops are taken away. Go back to\nSweetfield to rebuild microfarms.';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+  unload() {
+      super.unload();
+
+      // you would unload it here
+      this.arrowsSprite = false;
+      narrativeVisible = false;
+  }
+}
+
 // Level Seven: Transcendence Room
 // Sweetfield Saved A Room
 
