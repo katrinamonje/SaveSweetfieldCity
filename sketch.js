@@ -182,16 +182,16 @@ function drawNarrativeText() {
   push();
   textSize(25);
   textFont(fontcurrentLevel);
-  fill("#000000");
+  fill("#694205");
   text(currentLevel, dialogueBoxX + 150, dialogueBoxY + 100);
   pop();
 
   // narrative instructions 
   push();
-  textSize(24);
+  textSize(23);
   textFont(fontNarrativeText);
-  fill("#000000");
-  text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 130);
+  fill("#FFFFFF");
+  text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 140);
   pop();
 }
 
@@ -400,7 +400,7 @@ class levelOneBasicNeedsRoom extends PNGRoom {
     if( playerSprite.overlap(this.foodSprite)) {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
-      currentLevel = 'Level 1';
+      currentLevel = 'Level 1: Basic Needs';
       currentNarrative = 'Sweetfield City is in DANGER! Air is too toxic to breathe. First,\nfind some food to take with you, then get out of Sweetfield!';
     }
     else {
@@ -441,7 +441,7 @@ class levelTwoSafetyRoom extends PNGRoom {
     if( playerSprite.overlap(this.maskSprite)) {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
-      currentLevel = 'Level 2';
+      currentLevel = 'Level 2: Safety';
       currentNarrative = 'The air is too toxic to breathe. Take this mask with you and follow\nthe path to continue your journey. By the way, where did everyone go?\nYou should try heading to Sweet Forest to find out.';
     }
     else {
@@ -461,6 +461,61 @@ class levelTwoSafetyRoom extends PNGRoom {
 }
 
 // Level Three A: Belongingness Room
+
+class LevelThreeABelongingnessRoom extends PNGRoom {
+  preload() {
+    this.npcGirlSprite = false;
+    this.npcGirlX = 770;
+    this.npcGirlY = 133;
+    this.npcGirlWidth = 200;
+    this.npcGirlHeight = 200;
+
+    this.npcMomAndChildSprite = false;
+    this.npcMomAndChildX = 1130;
+    this.npcMomAndChildY = 330;
+    this.npcMomAndChildWidth = 150;
+    this.npcMomAndChildHeight = 150;
+  }
+
+  load() {
+     super.load();
+     this.npcGirlSprite = createSprite(this.npcGirlX, this.npcGirlY, this.npcGirlWidth, this.npcGirlHeight);
+     this.npcGirlSprite.addAnimation('idle', loadAnimation('assets/avatars/npcGirl.png'));
+     this.npcMomAndChildSprite = createSprite(this.npcMomAndChildX, this.npcMomAndChildY, this.npcMomAndChildWidth, this.npcMomAndChildHeight);
+     this.npcMomAndChildSprite.addAnimation('idle', loadAnimation('assets/avatars/npcMomAndChild.png'));
+  }
+
+  draw() {
+    super.draw();
+    drawSprite(this.npcGirlSprite);
+    this.npcGirlSprite.setCollider('rectangle', 0, -20, 30, 30);
+    playerSprite.collide(this.npcGirlSprite);
+
+    drawSprite(this.npcMomAndChildSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.npcGirlSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 3: Belongingness';
+      currentNarrative = 'Hi Felicity! Thank you for rescuing us in the forest. We are very\nconfused as to what is happening in our town...I sure hope you can\nfind the others because many of us are lost.';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+  unload() {
+      super.unload();
+
+      // you would unload it here
+      this.npcGirlSprite = false;
+      this.MomAndChildSprite = false;
+      narrativeVisible = false;
+  }
+}
+
 // Level Three B: Belongingness Room
 // Level Four A: Esteem Room
 
@@ -490,7 +545,7 @@ class LevelFourBEsteemRoom extends PNGRoom {
     if( playerSprite.overlap(this.davidHumbleSprite)) {
       // draw a PNG file here of the dialog box...
       narrativeVisible = true;
-      currentLevel = 'Level 4';
+      currentLevel = 'Level 4: Esteem';
       currentNarrative = 'Sir David Humble: Hi! Welcome to my city. I see that you are\nlooking for something to tell you about our famous crops. You are\nwelcome to use our research library if you like? [press E to enter]';
     }
     else {
@@ -548,7 +603,7 @@ class narrativeEndingRoom extends PNGRoom {
     this.textBoxHeight = (height/6)*4;
     this.textBoxX = 200;
     this.textBoxY = 215;
-    this.instructionsText = "Sustainable microfarms help bring people closer to the food they eat, creating transparency in the food chain and the opportunity to combat environmental injustices such as 'food deserts' and shortages. Visit www.thrivesantaana.org to learn how cities like Santa Ana does it.\n\n\n[press SPACE]";
+    this.instructionsText = "Sustainable microfarms help bring people closer to the food they eat, creating transparency in the food chain and the opportunity to combat environmental injustices such as 'food deserts' and shortages. Visit www.thrivesantaana.org to learn how cities like Santa Ana does it.\n\n\n[SPACE]";
   }
 
   draw() {
