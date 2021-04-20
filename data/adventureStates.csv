@@ -12,7 +12,7 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 10,levelThreeBBelongingnessScreen,PNGRoom,assets/levelThreeBBelongingness.png,
 11,levelFourAEsteemScreen,PNGRoom,assets/levelFourAEsteem.png,assets/levelFourAEsteem_cl.csv
 12,levelFourBEsteemScreen,LevelFourBEsteemRoom,assets/levelFourBEsteem.png,assets/levelFourBEsteem_cl.csv
-13,levelFiveAKnowledgeScreen,PNGRoom,assets/levelFiveAKnowledge.png,assets/levelFiveAKnowledge_cl.csv
+13,levelFiveAKnowledgeScreen,LevelFiveAKnowledgeRoom,assets/levelFiveAKnowledge.png,assets/levelFiveAKnowledge_cl.csv
 14,levelFiveBKnowledgeScreen,PNGRoom,assets/levelFiveBKnowledge.png,assets/levelFiveBKnowledge_cl.csv
 15,levelSixSelfActualizationScreen,PNGRoom,assets/levelSixSelfActualization.png,
 16,levelSevenTranscendenceScreen,PNGRoom,assets/levelSevenTranscendence.png,assets/levelSevenTranscendence_cl.csv

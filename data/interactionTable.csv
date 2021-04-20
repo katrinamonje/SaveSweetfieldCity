@@ -14,7 +14,7 @@ levelFourAEsteemScreen,,,,,E,levelFourBEsteemScreen
 levelFourBEsteemScreen,e,,,,,levelFiveAKnowledgeScreen
 levelFiveAKnowledgeScreen,,,,discoverSweetfieldHistory,,levelFiveBKnowledgeScreen
 levelFiveBKnowledgeScreen,,,,,S,levelSixSelfActualizationScreen
-levelSixSelfActualizationScreen,,,,,E,levelSevenTranscendenceScreen
+levelSixSelfActualizationScreen,,,,,W,levelSevenTranscendenceScreen
 levelSevenTranscendenceScreen,,,,plantSweetflower,,levelSevenTranscendenceScreenEdited
 levelSevenTranscendenceScreenEdited,c,,,,,sweetfieldSavedAScreen
 sweetfieldSavedAScreen,,,,,W,sweetfieldSavedBScreen

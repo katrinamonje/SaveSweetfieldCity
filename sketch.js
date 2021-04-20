@@ -190,7 +190,7 @@ function drawNarrativeText() {
   push();
   textSize(23);
   textFont(fontNarrativeText);
-  fill("#FFFFFF");
+  fill("#000000");
   text(currentNarrative, dialogueBoxX + 150, dialogueBoxY + 140);
   pop();
 }
@@ -373,14 +373,16 @@ class levelOneBasicNeedsRoom extends PNGRoom {
 
     this.foodX = 200;
     this.foodY = 550;
-    
+    this.foodWidth = 100;
+    this.foodHeight = 53;
   }
 
   //load() gets called whenever you enter a room
   load() {
      super.load();
 
-     this.foodSprite = createSprite(this.foodX, this.foodY, 100, 53);
+      this.foodSprite = createSprite(this.foodX, this.foodY, this.foodWidth, this.foodHeight);
+      this.foodSprite.addAnimation('idle', loadAnimation('assets/clickables/food.png'));
   }
 
   // pass draw function to superclass, then draw sprites, then check for overlap
@@ -563,6 +565,49 @@ class LevelFourBEsteemRoom extends PNGRoom {
   }
 }
 // Level Five A: Knowledge Room
+class LevelFiveAKnowledgeRoom extends PNGRoom {
+  preload() {
+    this.sweetflowerTubesSprite = false;
+    this.sweetflowerTubesX = 650;
+    this.sweetflowerTubesY = 550;
+    this.sweetflowerTubesWidth = 50;
+    this.sweetflowerTubesHeight = 53;
+  }
+
+  load() {
+     super.load();
+     this.sweetflowerTubesSprite = createSprite(this.sweetflowerTubesX, this.sweetflowerTubesY, this.sweetflowerTubesWidth, this.sweetflowerTubesHeight);
+     this.sweetflowerTubesSprite.addAnimation('idle', loadAnimation('assets/sweetflowerTubes.png'));
+  }
+
+  draw() {
+    super.draw();
+    drawSprite(this.sweetflowerTubesSprite);
+    this.sweetflowerTubesSprite.setCollider('rectangle', 0, 0, 30, 30);
+    playerSprite.collide(this.sweetflowerTubesSprite);
+
+    // draw our dialog box here...
+    if( playerSprite.overlap(this.sweetflowerTubesSprite)) {
+      // draw a PNG file here of the dialog box...
+      narrativeVisible = true;
+      currentLevel = 'Level 5: Knowledge';
+      currentNarrative = 'Woah. Felicity stumbled into the secret room. Why do these\ntubes contain plants? They look familiar too...They are all over Goldfolk City!';
+    }
+    else {
+      narrativeVisible = false;
+      currentLevel = '';
+      currentNarrative = '';
+    }
+  }
+  unload() {
+      super.unload();
+
+      // you would unload it here
+      this.davidHumbleSprite = false;
+      narrativeVisible = false;
+  }
+}
+
 // Level Five B: Knowledge Room
 // Level Six: Self-Actualization Room
 // Level Seven: Transcendence Room
